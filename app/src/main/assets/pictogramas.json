@@ -1,0 +1,14 @@
+{
+  "pictogramas": [
+    { "nombre": "Comer", "etiqueta": "acción", "imagen": "comer" },
+    { "nombre": "Feliz", "etiqueta": "emoción", "imagen": "feliz" },
+    { "nombre": "cocodrilo", "etiqueta": "animales", "imagen": "cocodrilo" },
+    { "nombre": "perezoso", "etiqueta": "animales", "imagen": "perezoso" },
+    { "nombre": "elefante", "etiqueta": "animales", "imagen": "elefante" },
+    { "nombre": "hipopótamo", "etiqueta": "animales", "imagen": "hipopotamo" },
+    { "nombre": "gato", "etiqueta": "animales", "imagen": "gato" },
+    { "nombre": "cucharada", "etiqueta": "cocina", "imagen": "cucharada" },
+    { "nombre": "azucarero", "etiqueta": "cocina", "imagen": "azucarero" },
+    { "nombre": "Triste", "etiqueta": "emoción", "imagen": "triste" }
+  ]
+}

@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Barra de búsqueda -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editBuscar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Buscar pictograma"
+            android:imeOptions="actionDone"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar" />
+    </LinearLayout>
+
+    <!-- Categorías -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categorías:"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnCategoriaCocina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cocina"
+            android:drawableTop="@drawable/ic_cocina_background"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnCategoriaAnimales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Animales"
+            android:drawableTop="@drawable/ic_animales_background" />
+    </LinearLayout>
+
+    <!-- Resultados -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="8dp" />
+
+</LinearLayout>
