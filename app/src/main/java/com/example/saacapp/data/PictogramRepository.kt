@@ -10,6 +10,7 @@ object PictogramRepository {
         val jsonString = context.assets.open("pictogramas.json").bufferedReader().use { it.readText() }
         val jsonObject = JSONObject(jsonString)
         val jsonArray = jsonObject.getJSONArray("pictogramas")
+        val custom = CustomPictogramStore.loadPictograms(context)
 
         val list = mutableListOf<Pictogram>()
         for (i in 0 until jsonArray.length()) {
@@ -22,6 +23,6 @@ object PictogramRepository {
                 )
             )
         }
-        return list
+        return list + custom
     }
 }

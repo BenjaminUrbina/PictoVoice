@@ -1,10 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
     <!-- Barra superior -->
     <LinearLayout
@@ -40,9 +38,37 @@
             android:text="Buscar"
             android:textColor="@android:color/white"
             android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/btnNuevo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nuevo picto"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/btnOpciones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Opciones"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/btnMisPictos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mis pictos"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent" />
+
     </LinearLayout>
 
-    <!-- 🔹 Contenedor donde se mostrarán los fragments -->
+    <!-- Contenedor de fragments -->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
@@ -50,3 +76,5 @@
         android:layout_weight="1" />
 
 </LinearLayout>
+
+

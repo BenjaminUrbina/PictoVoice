@@ -33,7 +33,7 @@ class BuscarFragment : Fragment() {
 
         todos = PictogramRepository.loadPictograms(requireContext())
         adapter = PictogramAdapter(listaFiltrada)
-        binding.recyclerBuscar.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.recyclerBuscar.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.recyclerBuscar.adapter = adapter
 
         // Buscar pictograma por nombre
@@ -41,25 +41,55 @@ class BuscarFragment : Fragment() {
             val texto = binding.editBuscar.text.toString().trim().lowercase()
             if (texto.isNotEmpty()) {
                 listaFiltrada.clear()
-                listaFiltrada.addAll(todos.filter { it.nombre.lowercase().contains(texto) })
+                listaFiltrada.addAll(
+                    todos.filter { it.nombre.lowercase().contains(texto) }
+                )
                 adapter.notifyDataSetChanged()
             } else {
-                Toast.makeText(requireContext(), "Escribe una palabra para buscar", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Escribe una palabra para buscar",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
-        // Categorías
-        binding.btnCategoriaCocina.setOnClickListener {
-            mostrarCategoria("cocina")
-        }
-        binding.btnCategoriaAnimales.setOnClickListener {
+
+        // Categorías con imagen
+        binding.catanimales.setOnClickListener {
             mostrarCategoria("animales")
+        }
+
+        binding.cataccion.setOnClickListener {
+            mostrarCategoria("accion")
+        }
+        binding.catcomida.setOnClickListener {
+            mostrarCategoria("comida", "liquido")
+        }
+        binding.catlugar.setOnClickListener {
+            mostrarCategoria("lugar")
+        }
+
+        binding.catjuego.setOnClickListener {
+            mostrarCategoria("juego")
+        }
+        binding.catpersona.setOnClickListener {
+            mostrarCategoria("persona")
+        }
+        binding.catfavoritos.setOnClickListener {
+            mostrarCategoria("favoritos")
         }
     }
 
-    private fun mostrarCategoria(nombre: String) {
+    private fun mostrarCategoria(vararg nombres: String) {
+        val nombresNormalizados = nombres.map { it.lowercase() }.toSet()
+
         listaFiltrada.clear()
-        listaFiltrada.addAll(todos.filter { it.etiqueta.lowercase() == nombre })
+        listaFiltrada.addAll(
+            todos.filter { pictograma ->
+                pictograma.etiqueta.lowercase() in nombresNormalizados
+            }
+        )
         adapter.notifyDataSetChanged()
     }
 
@@ -68,3 +98,4 @@ class BuscarFragment : Fragment() {
         _binding = null
     }
 }
+

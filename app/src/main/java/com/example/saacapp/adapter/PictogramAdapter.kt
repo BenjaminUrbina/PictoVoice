@@ -1,17 +1,19 @@
 package com.example.saacapp.adapter
 
+import android.graphics.BitmapFactory
+import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.saacapp.R
 import com.example.saacapp.databinding.ItemPictogramBinding
 import com.example.saacapp.model.Pictogram
-import com.example.saacapp.R
+import java.util.Locale
 
-import android.speech.tts.TextToSpeech
-import java.util.*
-
-class PictogramAdapter(private val items: List<Pictogram>) :
-    RecyclerView.Adapter<PictogramAdapter.ViewHolder>() {
+class PictogramAdapter(
+    private val items: List<Pictogram>,
+    private val onClick: ((Pictogram) -> Unit)? = null
+) : RecyclerView.Adapter<PictogramAdapter.ViewHolder>() {
 
     private var tts: TextToSpeech? = null
 
@@ -19,13 +21,17 @@ class PictogramAdapter(private val items: List<Pictogram>) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemPictogramBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemPictogramBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
 
-        // Inicializar TextToSpeech (solo una vez por adapter)
+        // Inicializar TTS solo una vez
         if (tts == null) {
             tts = TextToSpeech(parent.context) { status ->
                 if (status == TextToSpeech.SUCCESS) {
-                    tts?.language = Locale("es", "ES") // español de España
+                    tts?.language = Locale("es", "ES")
                 }
             }
         }
@@ -35,36 +41,47 @@ class PictogramAdapter(private val items: List<Pictogram>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pictogram = items[position]
-        val context = holder.itemView.context
-
+        // El texto lo vamos a ocultar en el XML, pero lo dejamos seteado
         holder.binding.txtNombre.text = pictogram.nombre
 
-        val resourceName = pictogram.imagen
-            .substringBeforeLast(".")
-            .lowercase()
+        val context = holder.itemView.context
 
-        val resId = context.resources.getIdentifier(
-            resourceName,
-            "drawable",
-            context.packageName
-        )
-
-        if (resId != 0) {
-            holder.binding.imgPictogram.setImageResource(resId)
+        if (pictogram.isCustom && !pictogram.imagePath.isNullOrEmpty()) {
+            val bitmap = BitmapFactory.decodeFile(pictogram.imagePath)
+            holder.binding.imgPictogram.setImageBitmap(bitmap)
         } else {
-            holder.binding.imgPictogram.setImageResource(R.drawable.ic_placeholder)
+            val resId = context.resources.getIdentifier(
+                pictogram.imagen,
+                "drawable",
+                context.packageName
+            )
+            if (resId != 0) {
+                holder.binding.imgPictogram.setImageResource(resId)
+            } else {
+                holder.binding.imgPictogram.setImageResource(R.drawable.ic_placeholder)
+            }
         }
 
-        // 🔊 Reproducir la palabra al tocar la imagen
+        // 👇 Click SOLO en la imagen:
+        // - Llama al callback (para Frases)
+        // - Reproduce el sonido (para toda la app)
         holder.binding.imgPictogram.setOnClickListener {
-            tts?.speak(pictogram.nombre, TextToSpeech.QUEUE_FLUSH, null, null)
+            onClick?.invoke(pictogram)
+            tts?.speak(
+                pictogram.nombre,
+                TextToSpeech.QUEUE_FLUSH,
+                null,
+                pictogram.nombre
+            )
         }
     }
 
     override fun getItemCount() = items.size
 
-    override fun onViewRecycled(holder: ViewHolder) {
-        super.onViewRecycled(holder)
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView)
         tts?.stop()
+        tts?.shutdown()
+        tts = null
     }
 }

@@ -26,37 +26,191 @@
             android:text="Buscar" />
     </LinearLayout>
 
-    <!-- Categorías -->
+    <!-- Título categorías -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Categorías:"
+        android:text="Categorías"
         android:textStyle="bold"
         android:layout_marginTop="8dp" />
 
+    <!-- 🔹 Fila de categorías con imagen + texto -->
+    <!-- 🔹 Contenedor vertical para tener 2 filas -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="4dp">
 
-        <Button
-            android:id="@+id/btnCategoriaCocina"
-            android:layout_width="wrap_content"
+        <!-- 🔸 Fila 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cocina"
-            android:drawableTop="@drawable/ic_cocina_background"
-            android:layout_marginEnd="8dp" />
+            android:orientation="horizontal"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/btnCategoriaAnimales"
-            android:layout_width="wrap_content"
+            <!-- Categoría favorito -->
+            <LinearLayout
+                android:id="@+id/catfavoritos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/favorito" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="favoritos" />
+            </LinearLayout>
+
+            <!-- Categoría accion -->
+            <LinearLayout
+                android:id="@+id/cataccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/acciones" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="acciones" />
+            </LinearLayout>
+
+            <!-- Categoría comida -->
+            <LinearLayout
+                android:id="@+id/catcomida"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/comida" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="comida" />
+            </LinearLayout>
+
+            <!-- Categoría lugar -->
+            <LinearLayout
+                android:id="@+id/catlugar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/lugares" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="lugares" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 🔸 Fila 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Animales"
-            android:drawableTop="@drawable/ic_animales_background" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="4dp">
+
+            <!-- Categoría juego -->
+            <LinearLayout
+                android:id="@+id/catjuego"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/jugar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="juego" />
+            </LinearLayout>
+
+            <!-- Categoría persona -->
+            <LinearLayout
+                android:id="@+id/catpersona"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/familia" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="familia" />
+            </LinearLayout>
+
+            <!-- Categoría Animales -->
+            <LinearLayout
+                android:id="@+id/catanimales"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/categoria_animales" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Animales" />
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
-    <!-- Resultados -->
+
+    <!-- Resultados de búsqueda / categoría -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerBuscar"
         android:layout_width="match_parent"
@@ -65,3 +219,4 @@
         android:paddingTop="8dp" />
 
 </LinearLayout>
+

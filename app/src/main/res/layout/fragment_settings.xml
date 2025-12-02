@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Switch
+        android:id="@+id/switchFrases"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar pestaña Frases al usuario niño" />
+
+    <Switch
+        android:id="@+id/switchBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar pestaña Buscar al usuario niño"
+        android:layout_marginTop="8dp" />
+
+    <Switch
+        android:id="@+id/switchNuevo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mostrar función 'Nuevo pictograma' al usuario niño"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

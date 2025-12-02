@@ -1,44 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp">
 
-    <!-- Barra de búsqueda -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/editBuscar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Buscar pictograma"
-            android:imeOptions="actionDone"
-            android:inputType="text" />
-
-        <Button
-            android:id="@+id/btnBuscar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buscar" />
-    </LinearLayout>
-
-    <!-- Cuadrícula de pictogramas -->
+    <!-- Opciones (capas) -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFrases"
+        android:id="@+id/recyclerOpciones"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingTop="8dp" />
+        android:layout_weight="3"
+        android:paddingBottom="8dp" />
 
-    <!-- Botón limpiar -->
-    <Button
-        android:id="@+id/btnLimpiar"
+    <!-- Frase + botones -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Limpiar"
-        android:layout_marginTop="8dp" />
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <!-- Frase (pictogramas seleccionados) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFrase"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingEnd="4dp" />
+
+        <!-- Botones laterales -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnBorrarUltimo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Borrar" />
+
+            <Button
+                android:id="@+id/btnBorrarTodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Limpiar" />
+
+            <Button
+                android:id="@+id/btnDecirFrase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Decir" />
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>
+
+
