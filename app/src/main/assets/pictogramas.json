@@ -1,14 +1,67 @@
 {
   "pictogramas": [
-    { "nombre": "Comer", "etiqueta": "acción", "imagen": "comer" },
-    { "nombre": "Feliz", "etiqueta": "emoción", "imagen": "feliz" },
+    {"nombre": "sentir", "etiqueta": "sentir", "imagen": "sentir"},
+    {"nombre": "yo quiero", "etiqueta": "accion", "imagen": "yo_quiero"},
+
+
+
+    { "nombre": "Feliz", "etiqueta": "emocion", "imagen": "feliz" },
+    { "nombre": "Triste", "etiqueta": "emocion", "imagen": "triste" },
+    { "nombre": "Molesto", "etiqueta": "emocion", "imagen": "molesto" },
+    { "nombre": "Cansado", "etiqueta": "emocion", "imagen": "cansado" },
+    { "nombre": "Miedo", "etiqueta": "emocion", "imagen": "miedo"},
+
+
+
+    { "nombre": "Comer", "etiqueta": "accion", "imagen": "comer" },
+    {"nombre": "ir", "etiqueta": "accion", "imagen": "ir"},
+    {"nombre": "beber", "etiqueta": "accion", "imagen": "beber"},
+    {"nombre": "jugar", "etiqueta": "accion", "imagen": "jugar"},
+    {"nombre": "buscar", "etiqueta": "accion", "imagen": "buscar"},
+
+
+    {"nombre": "manzana", "etiqueta": "comida", "imagen": "manzana"},
+    {"nombre": "pan", "etiqueta": "comida", "imagen": "pan"},
+    {"nombre": "yogur", "etiqueta": "comida", "imagen": "yogur"},
+    {"nombre": "galletas", "etiqueta": "comida", "imagen": "galletas"},
+
+
+    {"nombre": "agua", "etiqueta": "liquido", "imagen": "agua"},
+    {"nombre": "leche", "etiqueta": "liquido", "imagen": "leche"},
+    {"nombre": "jugo", "etiqueta": "liquido", "imagen": "jugo"},
+
+    { "nombre": "cuchara", "etiqueta": "objeto", "imagen": "cuchara" },
+    { "nombre": "azucarero", "etiqueta": "objeto", "imagen": "azucarero" },
+
+
+    {"nombre": "cocina", "etiqueta": "lugar", "imagen": "categoria_cocina"},
+    {"nombre": "patio", "etiqueta": "lugar", "imagen": "patio"},
+    {"nombre": "dormitorio", "etiqueta": "lugar", "imagen": "dormitorio"},
+    {"nombre": "baño", "etiqueta": "lugar", "imagen": "banno"},
+    {"nombre": "casa", "etiqueta": "lugar", "imagen": "casa"},
+    {"nombre": "colegio", "etiqueta": "lugar", "imagen": "colegio"},
+    {"nombre": "plaza", "etiqueta": "lugar", "imagen": "plaza"},
+
+    {"nombre": "mamá", "etiqueta": "persona", "imagen": "mamaa"},
+    {"nombre": "papá", "etiqueta": "persona", "imagen": "papaa"},
+    {"nombre": "familia", "etiqueta": "persona", "imagen": "familia"},
+    {"nombre": "abuelos", "etiqueta": "persona", "imagen": "abuelos"},
+    {"nombre": "profesora", "etiqueta": "persona", "imagen": "profesora"},
+
+
+    {"nombre": "futbol", "etiqueta": "juego", "imagen": "futbol"},
+    {"nombre": "videojuego", "etiqueta": "juego", "imagen": "videojuego"},
+    {"nombre": "contigo", "etiqueta": "juego", "imagen": "contigo"},
+
+
+
+
     { "nombre": "cocodrilo", "etiqueta": "animales", "imagen": "cocodrilo" },
     { "nombre": "perezoso", "etiqueta": "animales", "imagen": "perezoso" },
     { "nombre": "elefante", "etiqueta": "animales", "imagen": "elefante" },
     { "nombre": "hipopótamo", "etiqueta": "animales", "imagen": "hipopotamo" },
     { "nombre": "gato", "etiqueta": "animales", "imagen": "gato" },
-    { "nombre": "cucharada", "etiqueta": "cocina", "imagen": "cucharada" },
-    { "nombre": "azucarero", "etiqueta": "cocina", "imagen": "azucarero" },
-    { "nombre": "Triste", "etiqueta": "emoción", "imagen": "triste" }
+    { "nombre": "cucharada", "etiqueta": "cocina", "imagen": "cucharada" }
+
   ]
 }

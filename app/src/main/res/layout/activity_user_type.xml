@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <Button
+        android:id="@+id/btnNino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Niño"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnTutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tutor"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
